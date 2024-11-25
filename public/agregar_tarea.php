@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once 'controllers/TareaController.php';
+require_once __DIR__ . '/../controllers/TareaController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Agregar Tarea</title>
+    <title>Agregar Nueva Tarea</title>
 </head>
 <body>
     <h1>Agregar Nueva Tarea</h1>
@@ -32,5 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <button type="submit">Agregar Tarea</button>
     </form>
+    <a href="index.php">Volver al listado</a>
 </body>
 </html>
