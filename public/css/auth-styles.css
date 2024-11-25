@@ -1,0 +1,133 @@
+/* Fondo con degradado */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4793AF, #FFC470);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenedor Principal */
+.auth-container {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+    border-top: 5px solid #4793AF;
+}
+
+/* Animación de Entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Título */
+.auth-container h1 {
+    font-size: 2rem;
+    color: #4793AF;
+    margin-bottom: 20px;
+}
+
+/* Íconos */
+.auth-container h1::before {
+    content: "🔒"; /* Puedes cambiarlo por cualquier emoji o ícono */
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Campos del Formulario */
+.auth-container label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #F9F9F9;
+    transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+    border-color: #4793AF;
+    outline: none;
+}
+
+/* Botón */
+.auth-container button {
+    background-color: #4793AF;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.auth-container button:hover {
+    background-color: #336F87;
+    transform: translateY(-2px);
+}
+
+.auth-container button:active {
+    transform: translateY(0);
+}
+
+/* Mensajes de Error */
+.auth-container p {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Enlaces */
+.auth-container a {
+    color: #4793AF;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.auth-container a:hover {
+    color: #336F87;
+    text-decoration: underline;
+}
+
+/* Separador */
+.auth-container .spacer {
+    margin: 30px 0;
+    border-top: 1px solid #DDD;
+}
+
+/* Resaltar inputs */
+.auth-container input:hover {
+    background-color: #F0F8FF;
+}
