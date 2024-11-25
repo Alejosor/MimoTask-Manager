@@ -1,0 +1,119 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #4793AF;
+    margin-top: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista de tareas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.pendiente {
+    background-color: #FFC470;
+    color: #1a1a1a;
+}
+
+li.completada {
+    background-color: #DD5746;
+    color: #FFFFFF;
+}
+
+/* Botones para tareas completadas */
+li.completada a.editar {
+    background-color: #4793AF; /* Azul para contraste */
+    color: #FFFFFF;
+}
+
+li.completada a.eliminar {
+    background-color: #8B322C; /* Rojo oscuro para contraste */
+    color: #FFFFFF;
+}
+
+li.completada a.eliminar:hover {
+    background-color: #FFC470; /* Naranja claro al pasar el cursor */
+    color: #1a1a1a;
+}
+
+/* Botones */
+button, a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+a.editar {
+    background-color: #4793AF;
+    color: #FFFFFF;
+}
+
+a.eliminar {
+    background-color: #DD5746;
+    color: #FFFFFF;
+}
+
+a.completar {
+    background-color: #8B322C; /* Contraste mejorado */
+    color: #FFFFFF;
+}
+
+button:hover, a:hover {
+    opacity: 0.8;
+}
+
+/* Formulario de filtros */
+.filtros {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros select, .filtros button {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Separación visual */
+.tareas-pendientes, .tareas-completadas {
+    margin-bottom: 30px;
+}
+
+.tareas-pendientes h2, .tareas-completadas h2 {
+    color: #4793AF;
+    border-bottom: 2px solid #4793AF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}

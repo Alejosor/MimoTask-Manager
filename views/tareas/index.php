@@ -7,40 +7,57 @@
     <title>Lista de Tareas</title>
 </head>
 <body>
-    <h1>Lista de Tareas</h1>
+    <h1>TaskFlow Manager</h1>
+    <div class="container">
+        <!-- Formulario de Filtros -->
+        <form method="GET" action="index.php" class="filtros">
+            <label for="filtro">Estado:</label>
+            <select id="filtro" name="filtro">
+                <option value="">Todos</option>
+                <option value="Pendiente" <?= isset($_GET['filtro']) && $_GET['filtro'] === 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                <option value="Completada" <?= isset($_GET['filtro']) && $_GET['filtro'] === 'Completada' ? 'selected' : '' ?>>Completada</option>
+            </select>
+            <button type="submit" class="filtrar">Filtrar</button>
+        </form>
 
-    <!-- Formulario de Filtros -->
-    <form method="GET" action="index.php">
-        <label for="filtro">Estado:</label>
-        <select id="filtro" name="filtro">
-            <option value="">Todos</option>
-            <option value="Pendiente" <?= isset($_GET['filtro']) && $_GET['filtro'] === 'Pendiente' ? 'selected' : '' ?>>Pendiente</option>
-            <option value="Completada" <?= isset($_GET['filtro']) && $_GET['filtro'] === 'Completada' ? 'selected' : '' ?>>Completada</option>
-        </select>
-        <button type="submit">Filtrar</button>
-    </form>
+        <!-- Tareas Pendientes -->
+        <div class="tareas-pendientes">
+            <h2>Tareas Pendientes</h2>
+            <ul>
+                <?php foreach ($tareas as $tarea): ?>
+                    <?php if ($tarea['estado'] === 'Pendiente'): ?>
+                        <li class="pendiente">
+                            <?= htmlspecialchars($tarea['nombre']) ?>
+                            <div>
+                                <a class="editar" href="editar_tarea.php?id=<?= $tarea['id'] ?>">Editar</a>
+                                <a class="eliminar" href="eliminar_tarea.php?id=<?= $tarea['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">Eliminar</a>
+                                <a class="completar" href="completar_tarea.php?id=<?= $tarea['id'] ?>">Completar</a>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
-    <!-- Enlaces para Ordenar -->
-    <a href="index.php?orden=nombre&direccion=ASC">Ordenar por Nombre (A-Z)</a>
-    <a href="index.php?orden=nombre&direccion=DESC">Ordenar por Nombre (Z-A)</a>
-    <a href="index.php?orden=fecha_creacion&direccion=ASC">Ordenar por Fecha (Antiguas)</a>
-    <a href="index.php?orden=fecha_creacion&direccion=DESC">Ordenar por Fecha (Recientes)</a>
+        <!-- Tareas Completadas -->
+        <div class="tareas-completadas">
+            <h2>Tareas Completadas</h2>
+            <ul>
+                <?php foreach ($tareas as $tarea): ?>
+                    <?php if ($tarea['estado'] === 'Completada'): ?>
+                        <li class="completada">
+                            <?= htmlspecialchars($tarea['nombre']) ?>
+                            <div>
+                                <a class="editar" href="editar_tarea.php?id=<?= $tarea['id'] ?>">Editar</a>
+                                <a class="eliminar" href="eliminar_tarea.php?id=<?= $tarea['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">Eliminar</a>
+                            </div>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
 
-    <!-- Lista de Tareas -->
-    <ul>
-        <?php foreach ($tareas as $tarea): ?>
-            <li>
-                <?= htmlspecialchars($tarea['nombre']) ?> - <?= htmlspecialchars($tarea['estado']) ?> - <?= htmlspecialchars($tarea['fecha_creacion']) ?>
-                <a href="editar_tarea.php?id=<?= $tarea['id'] ?>">Editar</a>
-                <a href="eliminar_tarea.php?id=<?= $tarea['id'] ?>" onclick="return confirm('¿Estás seguro de que deseas eliminar esta tarea?');">Eliminar</a>
-
-                <?php if ($tarea['estado'] === 'Pendiente'): ?>
-                    <a href="completar_tarea.php?id=<?= $tarea['id'] ?>">Completar</a>
-                <?php endif; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-
-    <a href="agregar_tarea.php">Nueva Tarea</a>
+        <a class="completar" href="agregar_tarea.php">Nueva Tarea</a>
+    </div>
 </body>
 </html>
