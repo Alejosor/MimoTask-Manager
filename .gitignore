@@ -1,0 +1,48 @@
+# Ignorar directorios del entorno local
+*.log
+*.env
+
+# Ignorar configuraciones específicas del sistema
+.idea/
+.vscode/
+*.DS_Store
+
+# Ignorar configuraciones de XAMPP o servidor local
+/htdocs/xamppfiles/
+
+# Ignorar archivos de sistema
+Thumbs.db
+Desktop.ini
+
+# Ignorar dependencias del servidor
+vendor/
+node_modules/
+
+# Ignorar configuraciones de caché
+cache/
+logs/
+tmp/
+
+# Ignorar backups o configuraciones locales
+*.bak
+*.sql
+
+# Ignorar archivos temporales y de sistema operativo
+*.swp
+*.swo
+*.tmp
+*.~lock.*
+
+# Ignorar archivos de configuración de entornos locales
+phpunit.xml
+phpunit.xml.dist
+
+# Ignorar archivos CSS o JS generados automáticamente (si aplica)
+public/css/*.map
+public/js/*.map
+
+# Ignorar capturas de pantalla u otros archivos relacionados con documentación temporal
+/screenshots/
+
+# Ignorar archivos de configuración de base de datos locales
+config/Database.php
