@@ -132,6 +132,40 @@ a.completar:hover {
     color: #FFFFFF;
 }
 
+/* Información del Usuario */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    color: #4793AF;
+}
+
+.user-info span {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.user-info .logout-button {
+    text-decoration: none;
+    background-color: #DD5746;
+    color: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.user-info .logout-button:hover {
+    background-color: #8B322C;
+}
+
 /* Animación */
 @keyframes fadeIn {
     from {

@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php'); // Redirige al login si no está autenticado
+    exit;
+}
+
+$usuarioNombre = $_SESSION['usuario_nombre'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +16,13 @@
     <title>Lista de Tareas</title>
 </head>
 <body>
+    <header>
+        <div class="user-info">
+            <span>Bienvenido, <?= htmlspecialchars($usuarioNombre) ?></span>
+            <a href="logout.php" class="logout-button">Cerrar Sesión</a>
+        </div>
+    </header>
+
     <h1>TaskFlow Manager</h1>
     <div class="container">
         <!-- Formulario de Filtros -->
